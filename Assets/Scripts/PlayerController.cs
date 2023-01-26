@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
         UpdateScoreText();
     }
 
-    void OnMove(InputValue value){
+    public void OnMove(InputValue value){
         Debug.Log(value);
         Debug.Log(value.Get<Vector2>());
         Vector2 movement = value.Get<Vector2>();
@@ -34,8 +34,28 @@ public class PlayerController : MonoBehaviour
     }
 
 
+
     private void FixedUpdate() {
         rb.AddForce(new Vector3(movementForceX * movementSpeed, 0, movementForceY * movementSpeed));
+        
+        
+        //The new input system refuses to work on my project so i did it the old way
+        //i troubleshooted this for like 4 days and could not get it to work
+        //i have 0 idea what i'm doing wrong with it, made sure everything looked good in the inspector
+        //and in my code
+        //if you find what i did wrong PLEASE let me know, it drove me a bit crazy
+        if(Input.GetKey(KeyCode.LeftArrow)){
+            rb.AddForce(new Vector3(-1*movementSpeed, 0, 0));
+        }
+        else if(Input.GetKey(KeyCode.RightArrow)){
+            rb.AddForce(new Vector3(1*movementSpeed, 0, 0));
+        }
+        else if(Input.GetKey(KeyCode.UpArrow)){
+            rb.AddForce(new Vector3(0, 0, 1*movementSpeed));
+        }
+        else if(Input.GetKey(KeyCode.DownArrow)){
+            rb.AddForce(new Vector3(0, 0, -1*movementSpeed));
+        }
     }
 
     void UpdateScoreText(){

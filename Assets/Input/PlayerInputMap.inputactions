@@ -7,20 +7,20 @@
             "actions": [
                 {
                     "name": "Move",
-                    "type": "PassThrough",
+                    "type": "Value",
                     "id": "6f165ec4-918e-4e2b-a5df-3d1ebea9e03f",
-                    "expectedControlType": "",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": ""
                 }
             ],
             "bindings": [
                 {
-                    "name": "2D Vector",
+                    "name": "Keyboard",
                     "id": "756085d6-49a1-4698-ad32-f15df5561f90",
                     "path": "2DVector",
                     "interactions": "",
-                    "processors": "",
+                    "processors": "ScaleVector2",
                     "groups": "",
                     "action": "Move",
                     "isComposite": true,
